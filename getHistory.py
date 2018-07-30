@@ -14,6 +14,7 @@ def getHistory(addr, pid=31, offset=0):
   print "Note: This will take a while. Please be patient"
   print ""
   print "Block "+str(info['blocks'])+" - Date: "+str(time.strftime('%Y-%m-%d %H:%M:%S', time.gmtime(time.time())))+" - Balance: "+str(bal)
+  sys.stdout.flush()
 
   s=time.time() - 10
   while True:
@@ -41,6 +42,7 @@ def getHistory(addr, pid=31, offset=0):
             td = str(time.strftime('%Y-%m-%d %H:%M:%S', time.gmtime(rawtx['blocktime'])))
             print "Block "+str(block)+" | TxHash: "+str(tx['hash'])+" | Date: "+str(td)+"\t| Balance: "+str(bal)+" ("+str(amount)+" transfered)"
             #print ""+str(block)+"|"+str(tx['hash'])+"|"+str(td)+"|"+str(bal)+"|"+str(amount)+""
+            sys.stdout.flush()
             bal += amount
           break
 
@@ -53,6 +55,8 @@ if __name__ == "__main__":
   if len(sys.argv) != 3:
     print "Invalid number of arguments"
     print "Call with: python getHistory.py address propertyid"
+    sys.stdout.flush()
+    exit(0)
   addr=str(sys.argv[1])
   pid=int(sys.argv[2])
   getHistory(addr,pid)
