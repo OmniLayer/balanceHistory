@@ -3,7 +3,7 @@ Provide method for historical balances
 
 #Software Requirements
 Fully synced omnicored client : https://bintray.com/omni/OmniBinaries/OmniCore/view
-Python 2.7
+Python 2.7 with pip packages: requests, getpass
 
 #Setup Requirements
 Clone this repo as the same user that is running omnicored
